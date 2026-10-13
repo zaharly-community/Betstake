@@ -1,24 +1,22 @@
-# Betstake — Design Specification
+# Betstake — Sports & Games Template
 
-## Reference and confidence
-- Visual direction reference: [Fansport — betting platform on Behance](https://www.behance.net/gallery/255208455/Fansport-betting-platform).
-- Full reference screens were not available for detailed inspection. This is a considered sportsbook interpretation, not a claim of pixel-perfect reproduction.
-- No images are downloaded or generated. Media areas remain intentionally blank; team identifiers are text labels.
+## Direction
+A dark sportsbook and gaming template with deep charcoal/green surfaces, bright lime accent, compact sports navigation, event cards, and a persistent desktop bet slip. This is an original implementation inspired by common sportsbook patterns, not a pixel-perfect copy of GigaWin; the live reference site could not be inspected reliably from this environment.
 
-## Visual direction
-- Charcoal foundation, restrained lime-green accent, warm-white typography, muted secondary labels.
-- Dense but legible sportsbook layout: main navigation, sports list, featured event, match markets, and persistent desktop bet slip.
-- Rounded surfaces, subtle borders, tabular odds numerals, visible selected states.
-- Responsive layout adapts to compact mobile navigation and a bottom bet-slip summary.
+## Demo-only scope
+- Fixture names, scores, markets, and odds are illustrative.
+- Filtering, search, favorites, odds selection, stake presets, and potential-return calculation are client-side interactions.
+- The “Demo bet” control only displays a notice; no wager is submitted.
+- No user accounts, wallet, deposits, payments, or sportsbook API connections.
 
-## Functional scope
-- Sport filtering, search, match tabs, odds selection, selection removal, clear slip, stake input, and local potential-return calculation.
-- Fixtures and odds are illustrative demo data, not live feeds.
-- No accounts, wallet, payments, real-money wagering, or external sportsbook APIs.
+## Responsive behavior
+- Three-column desktop layout: sports navigation, events, and bet slip.
+- Tablet layout hides the permanent bet slip and opens it from a mobile summary bar.
+- Mobile layout uses horizontally scrollable sport filters and compact event cards.
 
-## Accessibility
-- Semantic buttons and labels, visible keyboard focus, descriptive odds labels, and reduced-motion support.
+## Run
+- `npm install`
+- `npm run dev`
+- `npm run build`
 
-## Verification
-- Run npm install, then npm run build.
-- Manually check desktop and mobile widths, filters/search, adding/removing odds, and stake updates.
+GitHub Pages base path remains configured in `vite.config.js`.
