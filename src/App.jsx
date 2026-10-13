@@ -11,7 +11,7 @@ const fixtures = [
 ];
 function App(){
  const [sport,setSport]=useState('Football'),[tab,setTab]=useState('All matches'),[search,setSearch]=useState(''),[searchOpen,setSearchOpen]=useState(false),[market,setMarket]=useState('Match winner'),[slip,setSlip]=useState([]),[stake,setStake]=useState('10'),[slipOpen,setSlipOpen]=useState(false);
- const shown=useMemo(()=>fixtures.filter(f=>(sport==='All sports'||f.sport===sport)&&(tab!=='Live'||f.live)&&(!search.trim()||[f.home,f.away,f.league].some(v=>v.toLowerCase().includes(search.toLowerCase())))),[sport,tab,search]);
+ const shown=useMemo(()=>fixtures.filter(f=>(sport==='All sports'||f.sport===sport)&&(tab==='Live'?f.live:tab==='Upcoming'?!f.live:true)&&(!search.trim()||[f.home,f.away,f.league].some(v=>v.toLowerCase().includes(search.toLowerCase())))),[sport,tab,search]);
  const odds=slip.reduce((n,s)=>n*s.odd,1),amount=Math.max(0,Number(stake)||0),ret=amount*odds;
  function pick(f,outcome,odd){setSlip(old=>old.some(s=>s.id===f.id)?old.filter(s=>s.id!==f.id):[...old,{id:f.id,home:f.home,away:f.away,outcome,odd,market}]);}
  return <div className="app">
